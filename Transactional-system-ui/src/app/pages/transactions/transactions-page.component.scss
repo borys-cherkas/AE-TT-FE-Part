@@ -1,0 +1,20 @@
+#transactions-page {
+
+  .table-responsive {
+    height: 65vh;
+  }
+
+  th, tr {
+    text-align: center;
+  }
+
+  tr {
+    &.debit-row {
+      background: #7ED6A6a3;
+    }
+
+    &.credit-row {
+      background: #ff00003a;
+    }
+  }
+}

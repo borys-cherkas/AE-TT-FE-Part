@@ -1,0 +1,34 @@
+<div class="row" id="transactions-page">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <h5 class="pull-left">Transaction Details</h5>
+          <div class="pull-right">
+            <button class="btn btn-secondary" (click)="back()">Go Back</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-body">
+
+        <div class="info">
+          <form *ngIf="transactionDetails">
+            <div class="form-group">
+              <label for="typeLabel">Debit\Credit</label>
+              <label id="typeLabel" class="form-control">{{transactionDetails.type}}</label>
+            </div>
+            <div class="form-group">
+              <label for="amountLabel">Amount</label>
+              <label id="amountLabel" class="form-control">{{isDebit(transactionDetails.type) ? '+' : '-'}} ${{ transactionDetails.amount}}</label>
+            </div>
+            <div class="form-group">
+              <label for="dateLabel">Amount</label>
+              <label id="dateLabel" class="form-control">{{transactionDetails.occured | date:"full"}}</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

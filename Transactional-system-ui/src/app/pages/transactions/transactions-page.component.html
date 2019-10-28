@@ -1,0 +1,49 @@
+<div class="row" id="transactions-page">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <h5 class="pull-left">Transactions</h5>
+        </div>
+
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-primary pull-right" (click)="refreshPage()">Refresh</button>
+            <p class="pull-left">Current Account Balance: ${{currentBalance}}</p>
+          </div>
+        </div>
+
+        <p *ngIf="!accountTransactions.length">
+          There is no any transactions yet.
+        </p>
+
+        <div class="table-responsive" *ngIf="accountTransactions.length">
+          <table class="table">
+            <thead class="text-primary">
+            <th>
+              Type
+            </th>
+            <th width="30%">
+              Amount
+            </th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tr of accountTransactions"
+                [ngClass]="{'debit-row': isDebit(tr.type), 'credit-row': !isDebit(tr.type)}"
+                (click)="onTransactionSelected(tr)">
+              <td>
+                {{tr.type}}
+              </td>
+              <td>
+                {{isDebit(tr.type) ? '+' : '-'}} ${{ tr.amount}}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
